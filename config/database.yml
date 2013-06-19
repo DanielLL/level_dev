@@ -1,0 +1,25 @@
+development: &development
+  adapter: postgresql
+  database: leveldev_development
+  username: root
+  password: root 
+  pool: 5
+  timeout: 5000
+
+test:
+  <<: *development
+  database: leveldev_test
+
+production: &production
+  adapter: postgresql
+  database: leveldev_production
+  pool: 5
+  timeout: 5000
+
+staging:
+  <<: *production
+  database: leveldev_staging
+
+integration:
+  <<: *production
+  database: leveldev_integration

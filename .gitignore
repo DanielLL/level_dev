@@ -1,0 +1,7 @@
+/.bundle
+/log/*.log
+/tmp/*
+*.DS_Store
+.powrc
+config/*.local.yml
+public/uploads
