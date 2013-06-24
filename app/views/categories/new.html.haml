@@ -1,0 +1,8 @@
+%h1 Add a new category
+= form_for :category, url: categories_path  do |f|
+  %fieldset
+    %legend Category
+    = f.label :name
+    = f.text_field :name
+    %br
+    = f.submit

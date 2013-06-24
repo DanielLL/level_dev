@@ -1,1 +1,7 @@
-
+%h1 Category index
+- if @categories.empty?
+  %p No Categories found!
+- else
+  - @categories.each do |category|
+    = category.name
+= link_to 'Add new category', new_category_path
