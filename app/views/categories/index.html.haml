@@ -2,6 +2,14 @@
 - if @categories.empty?
   %p No Categories found!
 - else
-  - @categories.each do |category|
-    = category.name
+  %table
+    - @categories.each do |category|
+      %tr
+        %td
+          %strong Name:
+        %td
+          = link_to category.name, category_path(category.id)
+        %td
+          = link_to 'Edit', edit_category_path(category.id) 
+%br
 = link_to 'Add new category', new_category_path
