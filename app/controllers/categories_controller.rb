@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(params[:category].permit(:name))
+    @category = Category.new(params[:category].permit(:name, :description, :percentage))
     if @category.save
       redirect_to action: :show, id: @category.id
     else

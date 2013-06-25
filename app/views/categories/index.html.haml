@@ -3,12 +3,19 @@
   %p No Categories found!
 - else
   %table
+    %tr
+      %th Name
+      %th Description
+      %th Percentage
+      %th Options
     - @categories.each do |category|
       %tr
         %td
-          %strong Name:
-        %td
           = link_to category.name, category_path(category.id)
+        %td
+          = category.description
+        %td
+          = category.percentage
         %td
           = link_to 'Edit', edit_category_path(category.id) 
 %br
