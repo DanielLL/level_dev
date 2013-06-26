@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm"
+export RAILS_ENV="Staging"
+cd ../..
+
+echo 'Shutting Dwon applications'
+kill -HUP "`cat tmp/pids/server.pid`"
+
+
+echo "Deploying on $RAILS_ENV"
+
+
+source .rvmrc
+
+echo 'checkout head'
+env -i git checkout -f
+env -i git reset --hard
+
+echo 'Installing gems...'
+RAILS_ENV="staging" bundle install --without=development --no-deployment
+
+echo 'Compiling assets...'
+RAILS_ENV="staging" rake assets:clean assets:precompile
+
+echo 'Running migrations...'
+RAILS_ENV="staging" rake db:migrate
+
+echo 'Turning on application...'
+RAILS_ENV="staging" rails s -p 3000
+
+
+echo "done"
