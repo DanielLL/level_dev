@@ -1,5 +1,8 @@
-%h1= @category.name
-%strong= @category.description
-%strong= @category.percentage
+%h1= category.name
+%strong Description
+= category.description
+%br
+%strong Percentage
+= category.percentage
 %br
 = link_to 'Back', categories_path

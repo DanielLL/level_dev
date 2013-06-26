@@ -1,5 +1,5 @@
 %h1 Category index
-- if @categories.empty?
+- if categories.empty?
   %p No Categories found!
 - else
   %table
@@ -8,7 +8,7 @@
       %th Description
       %th Percentage
       %th Options
-    - @categories.each do |category|
+    - categories.each do |category|
       %tr
         %td
           = link_to category.name, category_path(category.id)
