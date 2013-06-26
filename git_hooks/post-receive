@@ -1,32 +1,27 @@
 #!/usr/bin/env bash
 [[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm"
-export RAILS_ENV="Staging"
-cd ../..
-
-echo 'Shutting Dwon applications'
-kill -HUP "`cat tmp/pids/server.pid`"
-
-
+export RAILS_ENV="staging"
 echo "Deploying on $RAILS_ENV"
 
+cd ../
+GIT_DIR=$(pwd)
 
+echo "Using the current gemset"
 source .rvmrc
 
-echo 'checkout head'
+echo 'Checkout head...'
 env -i git checkout -f
 env -i git reset --hard
 
-echo 'Installing gems...'
-RAILS_ENV="staging" bundle install --without=development --no-deployment
+echo 'Deploying gems...'
+unset GIT_DIR
+bundle install --without=development --no-deployment
 
 echo 'Compiling assets...'
-RAILS_ENV="staging" rake assets:clean assets:precompile
+bundle exec rake assets:clean assets:precompile
 
-echo 'Running migrations...'
-RAILS_ENV="staging" rake db:migrate
-
-echo 'Turning on application...'
-RAILS_ENV="staging" rails s -p 3000
-
+echo 'Restarting applications...'
+kill -HUP "`cat tmp/pids/puma.pid`"
 
 echo "done"
+
