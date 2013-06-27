@@ -1,0 +1,19 @@
+%h1 Skill index
+- if skills.empty?
+  %p No Skills found!
+- else
+  %table
+    %tr
+      %th Name
+      %th Options
+    - skills.each do |skill|
+      %tr
+        %td
+          = skill.name
+        %td
+          = link_to 'Edit', '#'
+          = link_to 'Destroy', '#'
+%br
+= link_to 'Add new skill', new_category_skill_path
+|
+= link_to 'Back', category_path(params[:id])
