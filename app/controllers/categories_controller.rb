@@ -6,7 +6,6 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    category = Category.new(category_attributes)
     if category.save
       redirect_to category_path(category)
     else
@@ -31,14 +30,22 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    if category.destroy
+      redirect_to categories_path
+    else
+      render :index
+    end
+  end
+
   private 
 
   def category_attributes
     params.require(:category).permit(
+      :id,
       :name,
       :description,
       :percentage
     )
   end
-
 end

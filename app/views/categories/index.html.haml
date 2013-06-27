@@ -17,6 +17,7 @@
         %td
           = category.percentage
         %td
-          = link_to 'Edit', edit_category_path(category.id) 
+          = link_to 'Edit', edit_category_path(category.id)
+          = link_to 'Destroy', category_path(category.id), method: :delete
 %br
 = link_to 'Add new category', new_category_path
