@@ -1,0 +1,23 @@
+%h1 Category index
+- if categories.empty?
+  %p No Categories found!
+- else
+  %table
+    %tr
+      %th Name
+      %th Description
+      %th Percentage
+      %th Options
+    - categories.each do |category|
+      %tr
+        %td
+          = link_to category.name, category_path(category.id)
+        %td
+          = category.description
+        %td
+          = category.percentage
+        %td
+          = link_to 'Edit', edit_category_path(category.id)
+          = link_to 'Destroy', category_path(category.id), method: :delete
+%br
+= link_to 'Add new category', new_category_path

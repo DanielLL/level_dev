@@ -23,3 +23,7 @@ staging:
 integration:
   <<: *production
   database: leveldev_integration
+
+# Matching environments specified in this file will override the above.
+# You need to create the config/database.local.yml with your postgres credentials
+<%= IO.read('config/database.local.yml') if File.exists?('config/database.local.yml') %>
