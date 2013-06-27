@@ -1,14 +1,2 @@
 %h1 Add a new category
-= form_for category do |f|
-  %fieldset
-    %legend Category
-    = f.label :name
-    = f.text_field :name
-    %br
-    = f.label :description
-    = f.text_area :description
-    %br
-    = f.label :percentage
-    = f.text_field :percentage
-    %br
-    = f.submit
+= render 'form'

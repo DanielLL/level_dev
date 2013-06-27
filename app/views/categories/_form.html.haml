@@ -1,4 +1,12 @@
-= form_for :category, url: categories_path  do |f|
+= form_for category do |f|
+  -if category.errors.any?
+    .errors
+      %h2
+        = pluralize(category.errors.count, 'error') 
+        in this form!
+      %ul
+        - category.errors.full_messages.each do |error|
+          %li= error
   %fieldset
     %legend Category
     = f.label :name
