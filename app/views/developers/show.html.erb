@@ -1,0 +1,9 @@
+<% if developer_signed_in? %>
+  <h1><%= @who %></h1>
+  Signed in as <%= current_developer.name %>.
+  <br>
+  Email : <%= current_developer.email %>.
+  <br>
+  Type : <%= current_developer.admin? ? "Admin" : "Developer" %>.
+<% end %>
+

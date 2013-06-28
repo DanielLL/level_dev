@@ -1,6 +1,7 @@
 LevelDev::Application.routes.draw do
   devise_for :developers, :controllers => { :registrations => "registrations" }
   resources :categories
+  resources :developers, only: [:show]
   root to: "developers#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
