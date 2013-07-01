@@ -21,10 +21,16 @@ class SkillsController < ApplicationController
 
   def destroy
     if skill.destroy
-      redirect_to category_skills_path(:category), success: "Your skill was deleted"
+      redirect_to category_skills_path(:category), success = "Your skill was deleted"
     else
-      redirect_to category_skills_path(:category), error: "Your skill wasn't deleted"
+      redirect_to category_skills_path(:category), error = "Your skill wasn't deleted"
     end
+  end
+
+  def edit
+  end
+
+  def update
   end
 
   private
@@ -34,5 +40,4 @@ class SkillsController < ApplicationController
       :name
     )
   end
-
 end

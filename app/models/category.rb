@@ -7,6 +7,6 @@ class Category < ActiveRecord::Base
 
   #relations
   
-  has_many :skills
+  has_many :skills, dependent: :destroy
 
 end
