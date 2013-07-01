@@ -5,4 +5,8 @@ class Category < ActiveRecord::Base
   validates_presence_of :name, :description, :percentage
   validates_numericality_of :percentage
 
+  #relations
+  
+  has_many :skills
+
 end

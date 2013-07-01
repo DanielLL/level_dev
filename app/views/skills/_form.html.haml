@@ -1,0 +1,15 @@
+= form_for [:category, skill]  do |f|
+  -if skill.errors.any?
+    .errors
+      %h2
+        = pluralize(skill.errors.count, 'error') 
+        in this form!
+      %ul
+        - skill.errors.full_messages.each do |error|
+          %li= error
+  %fieldset
+    %legend Skill
+    = f.label :name
+    = f.text_field :name
+    %br
+    = f.submit
