@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm"
+export RAILS_ENV="staging"
+echo "Deploying on $RAILS_ENV"
+
+cd ../
+GIT_DIR=$(pwd)
+
+echo "Using the current gemset"
+source .rvmrc
+
+echo 'Checkout head...'
+env -i git checkout -f
+env -i git reset --hard
+
+echo 'Deploying gems...'
+unset GIT_DIR
+bundle install --without=development --no-deployment
+
+echo 'Compiling assets...'
+bundle exec rake assets:clean assets:precompile
+
+echo 'Restarting applications...'
+kill -HUP "`cat tmp/pids/puma.pid`"
+
+echo "done"
+

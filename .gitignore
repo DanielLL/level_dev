@@ -3,5 +3,5 @@
 /tmp/*
 *.DS_Store
 .powrc
-config/*.local.yml
+config/database.yml
 public/uploads

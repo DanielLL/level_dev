@@ -1,9 +1,8 @@
 development: &development
   adapter: postgresql
   database: leveldev_development
-  username: dev
-  host: localhost
-  password: dev 
+  username: root
+  password: root 
   pool: 5
   timeout: 5000
 
@@ -24,7 +23,3 @@ staging:
 integration:
   <<: *production
   database: leveldev_integration
-
-# Matching environments specified in this file will override the above.
-# You need to create the config/database.local.yml with your postgres credentials
-<%= IO.read('config/database.local.yml') if File.exists?('config/database.local.yml') %>
