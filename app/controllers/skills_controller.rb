@@ -21,11 +21,10 @@ class SkillsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     if skill.destroy
-      redirect_to category_skills_path(:category)#, success = "Your skill was deleted"
+      render :index
     else
-      redirect_to category_skills_path(:category)#, error = "Your skill wasn't deleted"
+      render :index
     end
   end
 
@@ -33,6 +32,11 @@ class SkillsController < ApplicationController
   end
 
   def update
+    if skill.save
+      render :index
+    else
+      render :new
+    end
   end
 
   private
