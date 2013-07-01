@@ -4,4 +4,6 @@ class ApplicationController < ActionController::Base
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
   end
+
+  add_flash_types :error, :success
 end

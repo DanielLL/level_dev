@@ -42,7 +42,6 @@ class CategoriesController < ApplicationController
 
   def category_attributes
     params.require(:category).permit(
-      :id,
       :name,
       :description,
       :percentage
