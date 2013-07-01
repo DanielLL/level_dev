@@ -1,5 +1,6 @@
 class SkillsController < ApplicationController
-  expose(:skills)
+  expose(:category)
+  expose(:skills) { category.skills }
   expose(:skill, attributes: :skill_attributes)
 
   def index
@@ -20,10 +21,11 @@ class SkillsController < ApplicationController
   end
 
   def destroy
+    binding.pry
     if skill.destroy
-      redirect_to category_skills_path(:category), success = "Your skill was deleted"
+      redirect_to category_skills_path(:category)#, success = "Your skill was deleted"
     else
-      redirect_to category_skills_path(:category), error = "Your skill wasn't deleted"
+      redirect_to category_skills_path(:category)#, error = "Your skill wasn't deleted"
     end
   end
 

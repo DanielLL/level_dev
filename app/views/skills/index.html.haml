@@ -1,6 +1,6 @@
 %h1 Skill index
-%p= error
-%p= success
+-#%p= error
+-#%p= success
 - if skills.empty?
   %p No Skills found!
 - else
@@ -13,7 +13,7 @@
         %td
           = link_to skill.name, category_skill_path(:category, skill)
         %td
-          = link_to 'Edit', edit_category_skill_path(:category, skill)
+          = link_to 'Edit', edit_category_skill_path(skill.category, skill)
           = link_to 'Destroy', category_skill_path(:category, skill), method: :delete
 %br
 = link_to 'Add new skill', new_category_skill_path(:category)
