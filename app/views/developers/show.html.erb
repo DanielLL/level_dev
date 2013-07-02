@@ -2,6 +2,9 @@
   <h1><%= @who %></h1>
   Signed in as <%= developer.name %>.
   <br>
+  <%= link_to "Level" %>
+  <%= link_to "My Skills" %>
+  <br><br>
   Email : <%= developer.email %>.
   <br>
   Type : <%= developer.admin? ? "Admin" : "Developer" %>.

@@ -1,7 +1,6 @@
-<style>
-  ul li{list-style: none;}
-</style>
+<link rel=stylesheet href="../../assets/stylesheets/screen.css.scss" type="text/scss">
 <% if developer_signed_in? %>
+  <%= link_to "Categories", categories_path(:show) %>
   <h1><%= @who %></h1>
   Signed in as <%= current_developer.name %>.
   <% if current_developer.admin? %>
