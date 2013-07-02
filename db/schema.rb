@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130627225250) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20130702224954) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -43,6 +40,11 @@ ActiveRecord::Schema.define(version: 20130627225250) do
 
   add_index "developers", ["email"], name: "index_developers_on_email", unique: true, using: :btree
   add_index "developers", ["reset_password_token"], name: "index_developers_on_reset_password_token", unique: true, using: :btree
+
+  create_table "skill_devs", force: true do |t|
+    t.integer "developer_id"
+    t.integer "skill_id"
+  end
 
   create_table "skills", force: true do |t|
     t.string   "name"
