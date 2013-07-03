@@ -7,35 +7,57 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    if category.save
-      redirect_to category_path(category)
+    if current_developer.admin
+      if category.save
+        redirect_to category_path(category)
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to categories_path
     end
   end
 
   def new
+    if current_developer.admin
+      render :new
+    else
+      redirect_to categories_path
+    end
   end
 
   def show
   end
 
   def edit
+    if current_developer.admin
+      render :new
+    else
+      redirect_to categories_path
+    end
   end
 
   def update
-    if category.save
-      redirect_to category_path(category)
+    if current_developer.admin
+      if category.save
+        redirect_to category_path(category)
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to categories_path
     end
   end
 
   def destroy
-    if category.destroy
-      redirect_to categories_path
+    if current_developer.admin
+      if category.destroy
+        redirect_to categories_path
+      else
+        render :index
+      end
     else
-      render :index
+      redirect_to categories_path
     end
   end
 
