@@ -22,9 +22,9 @@ class SkillsController < ApplicationController
 
   def destroy
     if skill.destroy
-      render :index
+      redirect_to category_skills_path(skill.category)
     else
-      render :index
+      redirect_to category_skills_path(skill.category)
     end
   end
 
