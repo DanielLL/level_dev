@@ -17,9 +17,6 @@ class SkillsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def destroy
     if skill.destroy
       redirect_to category_skills_path(skill.category)
