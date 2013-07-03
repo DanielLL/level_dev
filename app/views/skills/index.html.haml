@@ -9,7 +9,7 @@
     - skills.each do |skill|
       %tr
         %td
-          = link_to skill.name, category_skill_path(skill.category, skill)
+          = skill.name
         %td
           = link_to 'Edit', edit_category_skill_path(skill.category, skill)
           = link_to 'Destroy', category_skill_path(skill.category, skill), method: :delete
