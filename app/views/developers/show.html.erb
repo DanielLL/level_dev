@@ -1,12 +1,10 @@
 <% if developer_signed_in? %>
   <h1><%= @who %></h1>
-  Signed in as <%= developer.name %>.
+  Signed in as <%= developer.name %>
   <br>
-  <%= link_to "Level" %>
-  <%= link_to "My Skills" %>
   <br><br>
-  Email : <%= developer.email %>.
+  Email : <%= developer.email %>
   <br>
-  Type : <%= developer.admin? ? "Admin" : "Developer" %>.
+  Type : <%= developer.admin? ? "Admin" : "Developer" %>
 <% end %>
 

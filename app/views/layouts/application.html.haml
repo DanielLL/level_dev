@@ -2,6 +2,7 @@
 %html
   %head
     %title LevelDev
+    = stylesheet_link_tag    "screen", media: "all"
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
     = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"
@@ -11,6 +12,14 @@
       = current_developer.email + '.'
       Not you?
       = link_to "Sign out", destroy_developer_session_path, method: :get
+      %hr
+      = link_to "Categories", categories_path
+      = link_to "Level"
+      = link_to "My Skills"
+      = link_to "My profile", developer_path(current_developer)
+      -if current_developer.admin? 
+        = link_to "Developers", root_url
+      %hr
     - else
       = link_to "Sign up", new_developer_registration_path 
       or 

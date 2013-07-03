@@ -16,6 +16,9 @@ class DevelopersController < ApplicationController
   end
 
   def show
-
+    if developer_path != developer_path(current_developer)
+      redirect_to developer_path(current_developer)
+    end
   end
+
 end
