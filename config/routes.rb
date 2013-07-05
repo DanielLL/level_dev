@@ -8,6 +8,6 @@ LevelDev::Application.routes.draw do
   end
 
   resources :developers do
-    resources :skill_devs
+    resources :dev_skills
   end
 end

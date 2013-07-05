@@ -6,5 +6,5 @@ class Developer < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   validates_presence_of :name
 
-  has_many :skill_devs, dependent: :destroy
+  has_many :dev_skills, dependent: :destroy
 end
