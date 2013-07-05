@@ -6,4 +6,8 @@ LevelDev::Application.routes.draw do
   resources :categories do
     resources :skills, except: :show
   end
+
+  resources :developers do
+    resources :skill_devs
+  end
 end
