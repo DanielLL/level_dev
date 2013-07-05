@@ -14,5 +14,6 @@ Type  : #{developer.admin? ? "Admin" : "Developer"}
       {{category.name}}
       %ul.skill_list
         %li.skill(id="{{skill.id}}" ng-repeat="skill in category.skills")
+          %input(ng-model="skill.visible" type="checkbox")
           {{skill.name}}
 
