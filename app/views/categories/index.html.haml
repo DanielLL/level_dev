@@ -7,7 +7,7 @@
       %th Name
       %th Description
       %th Percentage
-      -if current_developer.admin
+      -if current_developer.admin?
         %th Options
     - categories.each do |category|
       %tr
@@ -17,10 +17,10 @@
           = category.description
         %td
           = category.percentage
-        -if current_developer.admin
+        -if current_developer.admin?
           %td
             = link_to 'Edit', edit_category_path(category.id)
             = link_to 'Destroy', category_path(category.id), method: :delete
--if current_developer.admin
+-if current_developer.admin?
   %br
   = link_to 'Add new category', new_category_path

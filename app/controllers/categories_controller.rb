@@ -9,40 +9,37 @@ class CategoriesController < ApplicationController
   end
 
   def create
-      if category.save
-        redirect_to category_path(category)
-      else
-        render :new
-      end
+    save_update(:new)
   end
 
   def new
-      render :new
   end
 
   def show
   end
 
   def edit
-      render :new
   end
 
   def update
-      if category.save
-        redirect_to category_path(category)
-      else
-        render :edit
-      end
+    save_update(:edit)
   end
 
   def destroy
-      if category.destroy
-        redirect_to categories_path
-      else
-        render :index
-      end
+    if category.destroy
+      redirect_to categories_path
+    else
+      render :index
+    end
   end
 
+  def save_update(action)
+    if category.save
+      redirect_to category_path(category)
+    else
+      render action
+    end
+  end
 
   def is_admin?
     unless current_developer.admin?
