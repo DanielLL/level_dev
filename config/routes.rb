@@ -8,6 +8,6 @@ LevelDev::Application.routes.draw do
   end
 
   resources :developers do
-    resources :dev_skills, only: :index
+    resources :dev_skills, only: [:index, :create]
   end
 end
