@@ -1,11 +1,7 @@
-<link rel=stylesheet href="../../assets/stylesheets/screen.css.scss" type="text/scss">
 <% if developer_signed_in? %>
   <br>
-  <%= link_to "Categories", categories_path(:index) %>
-  <%= link_to "Level" %>
-  <%= link_to "My Skills" %>
   <h1><%= @who %></h1>
-  Signed in as <%= current_developer.name %>.
+  Signed in as <%= current_developer.name %>
   <% if current_developer.admin? %>
   <ul>
     <% @developers.each do |developer| %>
