@@ -1,4 +1,5 @@
 class SkillsController < ApplicationController
+  before_filter :authenticate_developer!
   expose(:category)
   expose(:skills) { category.skills }
   expose(:skill, attributes: :skill_attributes)

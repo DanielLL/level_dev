@@ -1,9 +1,12 @@
 require 'spec_helper'
+include Devise::TestHelpers
 
 describe SkillsController do
 
   before(:each) do
     @category = FactoryGirl.create(:category)
+    @developer = FactoryGirl.create(:developer)
+    sign_in @developer
   end
 
   context 'index' do
