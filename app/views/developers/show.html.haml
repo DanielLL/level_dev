@@ -14,6 +14,7 @@ Type  : #{developer.admin? ? "Admin" : "Developer"}
       {{category.name}}
       %ul.skill_list
         %li.skill(id="{{skill.id}}" ng-repeat="skill in category.skills")
-          %input(ng-model="skill.visible" type="checkbox")
+          %input(ng-model="skill.visible" type="checkbox" ng-disabled="#{!current_developer.admin?}")
           {{skill.name}}
-
+          {{category.admin}}
+  %button(ng-show="#{current_developer.admin?}" type="button") Update Skills
