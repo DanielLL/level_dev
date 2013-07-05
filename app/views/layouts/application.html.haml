@@ -14,7 +14,6 @@
       %hr
       = link_to "Categories", categories_path
       = link_to "Level"
-      = link_to "My Skills", developer_dev_skills_path(current_developer)
       = link_to "My profile", developer_path(current_developer)
       -if current_developer.admin? 
         = link_to "Developers", root_url
