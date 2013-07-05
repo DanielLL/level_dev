@@ -1,0 +1,18 @@
+Name  : #{developer.name}
+%br
+Email : #{developer.email}
+%br
+Type  : #{developer.admin? ? "Admin" : "Developer"}
+%br
+%br
+
+.categories_container
+  %h4 Categories
+  %div(ng-controller="devSkillsController" ng-init="getCategories()")
+  %ul.categories_list(ng-controller="devSkillsController" ng-init="getCategories()")
+    %li.category(id="{{category.id}}"ng-repeat="category in categories")
+      {{category.name}}
+      %ul.skill_list
+        %li.skill(id="{{skill.id}}" ng-repeat="skill in category.skills")
+          {{skill.name}}
+
