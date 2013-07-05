@@ -1,9 +1,8 @@
 class CategoriesController < ApplicationController
   before_filter :authenticate_developer!
+  before_filter :is_admin?, except: [:index, :show]
   expose(:categories)
   expose(:category, attributes: :category_attributes)
-
-  before_filter :is_admin?, except: [:index, :show]
 
   def index
   end

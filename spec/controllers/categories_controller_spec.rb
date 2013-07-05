@@ -49,14 +49,14 @@ describe CategoriesController do
     end
 
     context 'new' do
-      it 'should redirect to index page' do
+      it 'should render template new' do
         get :new
         response.should be_success
       end
     end
 
     context 'edit' do
-      it 'should redirect to index page' do
+      it 'should render template edit' do
         category = FactoryGirl.create(:category)
         get :edit, id: category.id
         response.should be_success
