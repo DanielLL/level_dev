@@ -7,10 +7,22 @@ LevelDevs.controller('devSkillsController', ['$scope', '$http', function($scope,
     });
   };
 
-  $scope.getCategories = function(){
-    $http.get('/categories.json').success(function(categories){
+  $scope.getCategories = function(id){
+    $http.get('/categories.json', { params: { dev_id: id } }).success(function(categories){
+      $scope.dev_id     = id;
       $scope.categories = categories;
     });
+  };
+
+  $scope.updateDevSkills = function(id){
+
+    var ids_array =[]
+    $("input[type='checkbox']:checked").each(function(c){
+      ids_array[c] = $(this).parent().attr("id");
+    });
+    if (ids_array.length > 0){
+      $http.post('/developers/'+id+'/dev_skills', { ids_array: ids_array});
+    }
   };
 
 
