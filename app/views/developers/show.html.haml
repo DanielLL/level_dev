@@ -6,10 +6,10 @@ Type  : #{developer.admin? ? "Admin" : "Developer"}
 %br
 %br
 
-.categories_container
+.categories_container(ng-controller="devSkillsController" ng-init="getCategories(#{developer.id})")
   %h4 Categories
-  %div(ng-controller="devSkillsController" ng-init="getCategories()")
-  %ul.categories_list(ng-controller="devSkillsController" ng-init="getCategories()")
+  %div
+    %ul.categories_list
     %li.category(id="{{category.id}}"ng-repeat="category in categories")
       {{category.name}}
       %ul.skill_list
@@ -17,4 +17,4 @@ Type  : #{developer.admin? ? "Admin" : "Developer"}
           %input(ng-model="skill.visible" type="checkbox" ng-disabled="#{!current_developer.admin?}")
           {{skill.name}}
           {{category.admin}}
-  %button(ng-show="#{current_developer.admin?}" type="button") Update Skills
+  %button(ng-show="#{current_developer.admin?}" type="button" ng-click="updateDevSkills(#{developer.id})") Update Skills
