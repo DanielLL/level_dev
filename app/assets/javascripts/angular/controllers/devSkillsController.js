@@ -14,6 +14,15 @@ LevelDevs.controller('devSkillsController', ['$scope', '$http', function($scope,
     });
   };
 
+  $scope.empty_category = function(index){
+    if ($scope.categories[index].skills.length == 0){
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
   $scope.updateDevSkills = function(id){
 
     var ids_array =[]
