@@ -1,0 +1,7 @@
+!!!
+%body
+  %div(ng-controller="devSkillsController" ng-init="getDevSkills(1)")
+    %ul(ng-repeat="devSkill in devSkills")
+      %li
+        {{devSkill.name}}
+        

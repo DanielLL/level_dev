@@ -1,5 +1,7 @@
 class DevelopersController < ApplicationController
   before_filter :authenticate_developer!
+  before_filter :is_admin?
+
   expose(:developers)
   expose(:developer)
 
@@ -16,7 +18,10 @@ class DevelopersController < ApplicationController
   end
 
   def show
-    if developer_path != developer_path(current_developer)
+  end
+
+  def is_admin?
+    if current_developer != (developer rescue nil) && !current_developer.admin?       
       redirect_to developer_path(current_developer)
     end
   end

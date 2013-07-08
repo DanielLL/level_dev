@@ -7,5 +7,6 @@ class Skill < ActiveRecord::Base
   #relations
   
   belongs_to :category
+  has_many   :dev_skills, dependent: :destroy
 
 end

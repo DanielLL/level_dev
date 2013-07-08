@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
   before_filter :is_admin?, except: [:index, :show]
   expose(:categories)
   expose(:category, attributes: :category_attributes)
+  expose(:developer){Developer.find(params[:dev_id])}
 
   def index
   end
