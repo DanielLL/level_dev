@@ -38,7 +38,7 @@ class CategoriesController < ApplicationController
   # methods
 
   def save_update(action)
-    if category.percentage_greater_than_100?
+    if category.valid_percentage?
       render action
     else
       if category.save

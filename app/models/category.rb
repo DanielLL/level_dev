@@ -11,13 +11,9 @@ class Category < ActiveRecord::Base
 
   # methods
 
-  def percentage_greater_than_100?
+  def valid_percentage?
     percentage_total = Category.all.sum(:percentage) + self.percentage
-    if percentage_total > 100
-      return true
-    else
-      return false
-    end
+    return percentage_total > 100 ? true : false
   end
 
 end
