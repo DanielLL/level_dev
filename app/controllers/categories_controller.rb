@@ -3,7 +3,8 @@ class CategoriesController < ApplicationController
   before_filter :is_admin?, except: [:index, :show]
   expose(:categories)
   expose(:category, attributes: :category_attributes)
-  expose(:developer){Developer.find(params[:dev_id])}
+  expose(:developer) { Developer.find(params[:dev_id]) }
+  expose(:skills) { category.skills.order('created_at asc') }
 
   # actions for the controller
 

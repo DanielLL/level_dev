@@ -2,7 +2,7 @@ class SkillsController < ApplicationController
   before_filter :authenticate_developer!
   before_filter :is_admin?, except: :index
   expose(:category)
-  expose(:skills) { category.skills.order('created_at desc') }
+  expose(:skills)
   expose(:skill, attributes: :skill_attributes)
 
   def index
