@@ -36,6 +36,11 @@ GEM
     arel (4.0.0)
     atomic (1.1.9)
     bcrypt-ruby (3.0.1)
+    better_errors (0.9.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.1.4)
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
@@ -55,6 +60,7 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     database_cleaner (1.0.1)
+    debug_inspector (0.0.2)
     decent_exposure (2.2.0)
     devise (3.0.0.rc)
       bcrypt-ruby (~> 3.0)
@@ -173,6 +179,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
+  binding_of_caller
   carrierwave
   colorize
   compass-rails!
