@@ -20,9 +20,7 @@ LevelDevs.controller('devSkillsController', ['$scope', '$http', function($scope,
     $("input[type='checkbox']:checked").each(function(c){
       ids_array[c] = $(this).parent().attr("id");
     });
-    if (ids_array.length > 0){
-      $http.post('/developers/'+id+'/dev_skills', { ids_array: ids_array});
-    }
+    $http.post('/developers/'+id+'/dev_skills', { ids_array: ids_array});
   };
 
 
