@@ -24,7 +24,7 @@ describe Category do
     it 'percentage exed 100' do
       @category.save
       category = FactoryGirl.create(:category, percentage: 100)
-      category.percentage_greater_than_100?.should be_true
+      category.valid_percentage?.should be_true
     end
   end
 end
