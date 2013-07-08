@@ -61,7 +61,7 @@ describe SkillsController do
       it 'should delete a skill' do
         skill = FactoryGirl.create(:skill, category_id: @category.id)
         delete :destroy, category_id: @category.id, id: skill.id
-        response.should redirect_to category_skills_path
+        response.should redirect_to category_path(skill.category)
       end
     end
   end

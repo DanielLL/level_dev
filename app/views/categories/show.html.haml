@@ -4,7 +4,7 @@
 %br
 %strong Percentage
 = category.percentage
-%br
+%hr
+= render template: 'skills/index', locals: { skills: skills }
+%hr
 = link_to 'Back', categories_path
-|
-= link_to 'Show Skills', category_skills_path(category.id)
