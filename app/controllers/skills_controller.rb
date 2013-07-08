@@ -17,9 +17,9 @@ class SkillsController < ApplicationController
 
   def destroy
     if skill.destroy
-      redirect_to category_skills_path(skill.category)
+      redirect_to category_path(skill.category)
     else
-      redirect_to category_skills_path(skill.category)
+      redirect_to category_path(skill.category)
     end
   end
 
@@ -32,7 +32,7 @@ class SkillsController < ApplicationController
 
   def save_update(action)
     if skill.save
-      redirect_to category_skills_path(skill.category)
+      redirect_to category_path(skill.category)
     else
       render action
     end
@@ -40,7 +40,7 @@ class SkillsController < ApplicationController
 
   def is_admin?
     unless current_developer.admin?
-      redirect_to category_skills_path(skill.category)
+      redirect_to category_path(skill.category)
     end
   end
 

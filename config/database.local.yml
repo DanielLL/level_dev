@@ -1,8 +1,8 @@
 development: &development
   adapter: postgresql
   database: leveldev_development
-  username: root
-  password: root
+  username: postgres
+  password: 20066102
   pool: 5
   timeout: 5000
 

@@ -1,4 +1,4 @@
-%h1 Skill index
+%h1 Skills
 - if skills.empty?
   %p No Skills found!
 - else
@@ -17,6 +17,4 @@
               = link_to 'Destroy', category_skill_path(skill.category, skill), method: :delete
 %br
 - if current_developer.admin?
-  = link_to 'Add new skill', new_category_skill_path(skill.category)
-  |
-= link_to 'Back', category_path(skill.category)
+  = link_to 'Add new skill', new_category_skill_path(category)
