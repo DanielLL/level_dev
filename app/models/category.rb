@@ -9,4 +9,11 @@ class Category < ActiveRecord::Base
   
   has_many :skills, dependent: :destroy
 
+  # methods
+
+  def valid_percentage?
+    percentage_total = Category.all.sum(:percentage) + self.percentage
+    return percentage_total > 100 ? true : false
+  end
+
 end

@@ -5,6 +5,8 @@ class CategoriesController < ApplicationController
   expose(:category, attributes: :category_attributes)
   expose(:developer){Developer.find(params[:dev_id])}
 
+  # actions for the controller
+
   def index
   end
 
@@ -33,11 +35,17 @@ class CategoriesController < ApplicationController
     end
   end
 
+  # methods
+
   def save_update(action)
-    if category.save
-      redirect_to category_path(category)
-    else
+    if category.valid_percentage?
       render action
+    else
+      if category.save
+        redirect_to category_path(category)
+      else
+        render action
+      end
     end
   end
 
