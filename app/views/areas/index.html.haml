@@ -9,7 +9,7 @@
       %th Percentage
       -if current_developer.admin?
         %th Options
-    - areas.each do |category|
+    - areas.each do |area|
       %tr
         %td
           = link_to area.name, area_path(area.id)
@@ -20,7 +20,7 @@
         -if current_developer.admin?
           %td
             = link_to 'Edit', edit_area_path(area.id)
-            = link_to 'Destroy', category_path(area.id), method: :delete
+            = link_to 'Destroy', area_path(area.id), method: :delete
 -if current_developer.admin?
   %br
-  = link_to 'Add new category', new_area_path
+  = link_to 'Add new area', new_area_path

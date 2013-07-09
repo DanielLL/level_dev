@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class AreasController < ApplicationController
   before_filter :authenticate_developer!
   before_filter :is_admin?, except: [:index, :show]
   expose(:areas)
