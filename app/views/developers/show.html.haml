@@ -17,4 +17,7 @@ Type  : #{developer.admin? ? "Admin" : "Developer"}
           %input(ng-model="skill.visible" type="checkbox" ng-disabled="#{!current_developer.admin?}")
           {{skill.name}}
           {{category.admin}}
+        %p(ng-show="empty_category($index)")
+          this category has no skills yet...
+
   %button(ng-show="#{current_developer.admin?}" type="button" ng-click="updateDevSkills(#{developer.id})") Update Skills

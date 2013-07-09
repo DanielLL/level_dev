@@ -12,7 +12,13 @@ class Category < ActiveRecord::Base
   # methods
 
   def valid_percentage?
-    percentage_total = Category.all.sum(:percentage) + self.percentage
+    if self.new_record?
+      percentage_total = Category.all.sum(:percentage) + self.percentage
+    else
+      categories_array = Category.all.reject{ |category| category.id == self.id }      
+      percentage_total = categories_array.map(&:percentage).sum() + self.percentage
+    end
+
     return percentage_total > 100 ? true : false
   end
 
