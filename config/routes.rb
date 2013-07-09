@@ -3,7 +3,7 @@ LevelDev::Application.routes.draw do
   resources :developers, only: :show
   root to: "developers#index"
 
-  resources :categories do
+  resources :areas do
     resources :skills, except: :show
   end
 
