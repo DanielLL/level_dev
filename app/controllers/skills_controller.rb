@@ -1,8 +1,8 @@
 class SkillsController < ApplicationController
   before_filter :authenticate_developer!
   before_filter :is_admin?, except: :index
-  expose(:category)
-  expose(:skills) { category.skills }
+  expose(:area)
+  expose(:skills) { area.skills }
   expose(:skill, attributes: :skill_attributes)
 
   def index
@@ -17,9 +17,9 @@ class SkillsController < ApplicationController
 
   def destroy
     if skill.destroy
-      redirect_to category_path(skill.category)
+      redirect_to area_path(skill.area)
     else
-      redirect_to category_path(skill.category)
+      redirect_to area_path(skill.area)
     end
   end
 
@@ -32,7 +32,7 @@ class SkillsController < ApplicationController
 
   def save_update(action)
     if skill.save
-      redirect_to category_path(skill.category)
+      redirect_to area_path(skill.area)
     else
       render action
     end
@@ -40,7 +40,7 @@ class SkillsController < ApplicationController
 
   def is_admin?
     unless current_developer.admin?
-      redirect_to category_path(skill.category)
+      redirect_to area_path(skill.category)
     end
   end
 

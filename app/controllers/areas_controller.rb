@@ -30,7 +30,7 @@ class AreasController < ApplicationController
 
   def destroy
     if area.destroy
-      redirect_to categories_path
+      redirect_to areas_path
     else
       render :index
     end
