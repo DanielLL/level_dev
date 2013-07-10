@@ -7,15 +7,15 @@ LevelDevs.controller('devSkillsController', ['$scope', '$http', function($scope,
     });
   };
 
-  $scope.getCategories = function(id){
-    $http.get('/categories.json', { params: { dev_id: id } }).success(function(categories){
+  $scope.getAreas = function(id){
+    $http.get('/areas.json', { params: { dev_id: id } }).success(function(areas){
       $scope.dev_id     = id;
-      $scope.categories = categories;
+      $scope.areas = areas;
     });
   };
 
-  $scope.empty_category = function(index){
-    if ($scope.categories[index].skills.length == 0){
+  $scope.empty_area = function(index){
+    if ($scope.areas[index].skills.length == 0){
       return true;
     }
     else {

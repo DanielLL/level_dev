@@ -6,18 +6,18 @@ Type  : #{developer.admin? ? "Admin" : "Developer"}
 %br
 %br
 
-.categories_container(ng-controller="devSkillsController" ng-init="getCategories(#{developer.id})")
-  %h4 Categories
+.areas_container(ng-controller="devSkillsController" ng-init="getAreas(#{developer.id})")
+  %h4 Areas
   %div
-    %ul.categories_list
-    %li.category(id="{{category.id}}"ng-repeat="category in categories")
-      {{category.name}}
+    %ul.areas_list
+    %li.area(id="{{area.id}}"ng-repeat="area in areas")
+      {{area.name}}
       %ul.skill_list
-        %li.skill(id="{{skill.id}}" ng-repeat="skill in category.skills")
+        %li.skill(id="{{skill.id}}" ng-repeat="skill in area.skills")
           %input(ng-model="skill.visible" type="checkbox" ng-disabled="#{!current_developer.admin?}")
           {{skill.name}}
-          {{category.admin}}
-        %p(ng-show="empty_category($index)")
-          this category has no skills yet...
+          {{area.admin}}
+        %p(ng-show="empty_area($index)")
+          this area has no skills yet...
 
   %button(ng-show="#{current_developer.admin?}" type="button" ng-click="updateDevSkills(#{developer.id})") Update Skills
