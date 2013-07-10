@@ -64,7 +64,7 @@ describe AreasController do
     end
 
     context 'destroy' do
-      it 'should delete a category' do
+      it 'should delete an area' do
         area = FactoryGirl.create(:area)
         delete :destroy, id: area.id
         response.should redirect_to areas_path

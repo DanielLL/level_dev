@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :area do
-    name 'Dummy Category'
+    name 'Dummy Area'
     description 'whatever'
     percentage 25
   end
