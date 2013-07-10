@@ -40,7 +40,7 @@ class SkillsController < ApplicationController
 
   def is_admin?
     unless current_developer.admin?
-      redirect_to area_path(skill.category)
+      redirect_to area_path(skill.area)
     end
   end
 

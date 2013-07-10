@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Skill do
 
   before :each do 
-    @category = FactoryGirl.create(:category)
-    @skill = FactoryGirl.create(:skill, category_id: @category.id)
+    @area = FactoryGirl.create(:area)
+    @skill = FactoryGirl.create(:skill, area_id: @area.id)
   end
 
   context 'with valid information' do
