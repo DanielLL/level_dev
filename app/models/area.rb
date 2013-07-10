@@ -15,8 +15,8 @@ class Area < ActiveRecord::Base
     if self.new_record?
       percentage_total = Area.all.sum(:percentage) + self.percentage
     else
-      categories_array = Area.all.reject{ |category| category.id == self.id }      
-      percentage_total = categories_array.map(&:percentage).sum() + self.percentage
+      areas_array = Area.all.reject{ |area| area.id == self.id }
+      percentage_total = areas_array.map(&:percentage).sum() + self.percentage
     end
     return percentage_total > 100 ? true : false
   end
