@@ -1,0 +1,26 @@
+%h1 Area index
+- if areas.empty?
+  %p No Areas found!
+- else
+  %table
+    %tr
+      %th Name
+      %th Description
+      %th Percentage
+      -if current_developer.admin?
+        %th Options
+    - areas.each do |area|
+      %tr
+        %td
+          = link_to area.name, area_path(area.id)
+        %td
+          = area.description
+        %td
+          = area.percentage
+        -if current_developer.admin?
+          %td
+            = link_to 'Edit', edit_area_path(area.id)
+            = link_to 'Destroy', area_path(area.id), method: :delete
+-if current_developer.admin?
+  %br
+  = link_to 'Add new area', new_area_path

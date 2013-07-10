@@ -1,7 +1,7 @@
 require 'spec_helper'
 include Devise::TestHelpers
 
-describe CategoriesController do
+describe AreasController do
 
   context 'logged user as a developer' do
 
@@ -19,8 +19,8 @@ describe CategoriesController do
 
     context 'show' do
       it 'should get 200 code' do
-        category = FactoryGirl.create(:category)
-        get :show, id: category.id
+        area = FactoryGirl.create(:area)
+        get :show, id: area.id
         response.should be_success
       end
     end
@@ -34,8 +34,8 @@ describe CategoriesController do
 
     context 'edit' do
       it 'should redirect to index page' do
-        category = FactoryGirl.create(:category)
-        get :edit, id: category.id
+        area = FactoryGirl.create(:area)
+        get :edit, id: area.id
         response.should_not be_success
       end
     end
@@ -57,17 +57,17 @@ describe CategoriesController do
 
     context 'edit' do
       it 'should render template edit' do
-        category = FactoryGirl.create(:category)
-        get :edit, id: category.id
+        area = FactoryGirl.create(:area)
+        get :edit, id: area.id
         response.should be_success
       end
     end
 
     context 'destroy' do
-      it 'should delete a category' do
-        category = FactoryGirl.create(:category)
-        delete :destroy, id: category.id
-        response.should redirect_to categories_path
+      it 'should delete an area' do
+        area = FactoryGirl.create(:area)
+        delete :destroy, id: area.id
+        response.should redirect_to areas_path
       end
     end
   end

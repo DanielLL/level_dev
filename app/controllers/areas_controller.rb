@@ -1,10 +1,10 @@
-class CategoriesController < ApplicationController
+class AreasController < ApplicationController
   before_filter :authenticate_developer!
   before_filter :is_admin?, except: [:index, :show]
-  expose(:categories)
-  expose(:category, attributes: :category_attributes)
+  expose(:areas)
+  expose(:area, attributes: :area_attributes)
   expose(:developer) { Developer.find(params[:dev_id]) }
-  expose(:skills) { category.skills.order('created_at asc') }
+  expose(:skills) { area.skills.order('created_at asc') }
 
   # actions for the controller
 
@@ -29,8 +29,8 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    if category.destroy
-      redirect_to categories_path
+    if area.destroy
+      redirect_to areas_path
     else
       render :index
     end
@@ -39,11 +39,11 @@ class CategoriesController < ApplicationController
   # methods
 
   def save_update(action)
-    if category.valid_percentage?
+    if area.valid_percentage?
       render action
     else
-      if category.save
-        redirect_to category_path(category)
+      if area.save
+        redirect_to area_path(area)
       else
         render action
       end
@@ -52,14 +52,14 @@ class CategoriesController < ApplicationController
 
   def is_admin?
     unless current_developer.admin?
-      redirect_to categories_path
+      redirect_to areas_path
     end
   end
 
   private 
 
-  def category_attributes
-    params.require(:category).permit(
+  def area_attributes
+    params.require(:area).permit(
       :name,
       :description,
       :percentage

@@ -1,4 +1,4 @@
-class Category < ActiveRecord::Base
+class Area < ActiveRecord::Base
   
   #validations
 
@@ -13,12 +13,11 @@ class Category < ActiveRecord::Base
 
   def valid_percentage?
     if self.new_record?
-      percentage_total = Category.all.sum(:percentage) + self.percentage
+      percentage_total = Area.all.sum(:percentage) + self.percentage
     else
-      categories_array = Category.all.reject{ |category| category.id == self.id }      
-      percentage_total = categories_array.map(&:percentage).sum() + self.percentage
+      areas_array = Area.all.reject{ |area| area.id == self.id }
+      percentage_total = areas_array.map(&:percentage).sum() + self.percentage
     end
-
     return percentage_total > 100 ? true : false
   end
 

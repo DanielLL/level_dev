@@ -1,14 +1,14 @@
-= form_for category do |f|
-  -if category.errors.any?
+= form_for area do |f|
+  - if area.errors.any?
     .errors
       %h2
-        = pluralize(category.errors.count, 'error') 
+        = pluralize(area.errors.count, 'error') 
         in this form!
       %ul
-        - category.errors.full_messages.each do |error|
+        - area.errors.full_messages.each do |error|
           %li= error
   %fieldset
-    %legend Category
+    %legend Area
     = f.label :name
     = f.text_field :name
     %br
