@@ -1,0 +1,13 @@
+#login li{
+  background: asset-url('icons/check_sticker.png', image) no-repeat 2px;
+  float: left;
+  margin-left: 10px;
+  background-size: 32%;
+  padding-left: 34px;
+}
+
+#login li a{
+  color: #426580;
+  font-weight: bold;
+  font-size: 16px;
+}

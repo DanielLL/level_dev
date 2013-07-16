@@ -1,3 +1,29 @@
+body{
+  background: #F1F2F2;
+  font-family: 'Tahoma', 'Geneva', sans-serif;
+  margin: 0;
+  }
+
+header{
+  padding: 10px 30px 0;
+  background: #F0E7CB;
+  overflow: hidden;
+}
+
+nav{
+  padding: 10px 30px;
+  background: #00101A;
+  margin-top: 4px;
+}
+
+nav h1{color: #8EA9BF;}
+h1::first-letter { color: #EBAE2F; }
+
+a{text-decoration: none;}
+
+ul{margin: 0;}
+
 ul li {
   list-style: none;
 }
+
