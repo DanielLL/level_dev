@@ -1,0 +1,12 @@
+#content-table.background-white.img-rounded
+  -if developer_signed_in?
+    %h1.orange Developers:
+    -if current_developer.admin?
+      %table.table.table-striped
+        -@developers.each do |developer|
+          %tr
+            %td
+              = link_to developer.name, developer_path(developer)
+            %td 
+              #{developer.admin? ? "Admin" : "Developer"}
+    -else

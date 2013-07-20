@@ -12,10 +12,11 @@
         = link_to image_tag("logo-tango.png"), root_url
       #login
         -if developer_signed_in?
-          Signed in as 
-          = current_developer.email + '.'
-          Not you?
-          = link_to "Sign out", destroy_developer_session_path, method: :get
+          %ul.session
+            %li
+              = link_to current_developer.name, developer_path(current_developer)
+            %li
+              = link_to "Sign out", destroy_developer_session_path, method: :get
         - else
           %ul
             %li
@@ -23,15 +24,17 @@
             %li  
               = link_to "Sign in", new_developer_session_path
     %nav
-      %h1 Developers Level
+      %h3 Developers Level
       -if developer_signed_in?
-        %hr
-        = link_to "Categories", categories_path
-        = link_to "Level"
-        = link_to "My Skills"
-        = link_to "My profile", developer_path(current_developer)
-        -if current_developer.admin? 
-          = link_to "Developers", root_url
-        %hr
+        %ul.nav.nav-pills
+          %li
+            = link_to "Categories", areas_path
+          %li
+            = link_to "Level"
+          %li
+            = link_to "My Skills"
+          -if current_developer.admin?
+            %li
+              = link_to "Developers", root_url
     #content
       = yield

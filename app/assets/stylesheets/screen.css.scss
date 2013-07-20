@@ -14,16 +14,31 @@ nav{
   padding: 10px 30px;
   background: #00101A;
   margin-top: 4px;
+  overflow: hidden;
 }
 
-nav h1{color: #8EA9BF;}
-h1::first-letter { color: #EBAE2F; }
+nav h3{color: #8EA9BF; float: left;}
+nav h3::first-letter { color: #EBAE2F; }
+nav ul{float: right; margin: 1% 0 0;}
+nav li{line-height: 60px;}
+nav li a{font-size: 16px; color: #E3E3E3;}
 
 a{text-decoration: none;}
+
+a:hover{color: #7E91A0; text-decoration: none;}
 
 ul{margin: 0;}
 
 ul li {
   list-style: none;
+}
+
+input[type="name"], 
+input[type="email"], 
+input[type="password"],
+input[type="password_confirmation"]{
+   box-shadow: 0 9px 8px -6px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 9px 8px -6px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 9px 8px -6px rgba(0, 0, 0, 0.1);
 }
 

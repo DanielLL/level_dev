@@ -8,7 +8,6 @@ class DevelopersController < ApplicationController
   def index
     if developer_signed_in?
       if current_developer.admin?
-        @who = "You are Administrator"
         @developers = Developer.all
       else
         redirect_to developer_path(current_developer) 
