@@ -73,8 +73,9 @@
 .orange{  
   font-size: 20px;
   color: #EC8F33;
-  padding: 10px 0 0 20px;
+  padding: 10px 0 0 30px;
 }
+
 #error_explanation{
   padding: 8px 4px;
   background: #fcf8e3;
@@ -91,17 +92,21 @@
   margin: 20px auto 0;
 }
 
+.table-striped tbody>tr:nth-child(odd)>td {
+  background-color: #e3e3e3;
+}
+
 .table td{
   border: none;
 }
 
 td:nth-child(1){
-  background: asset-url('icons/icon-develop.png', image) no-repeat 12px;
+  background: asset-url('icons/icon-develop.png', image) no-repeat 28px;
   background-size: 3%;
-  padding: 18px 40px;
+  padding: 18px 60px;
 }
 
 td:nth-child(2){
   text-align: right;
-  padding: 18px 20px;
+  padding: 18px 30px;
 }
