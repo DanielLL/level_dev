@@ -4,9 +4,9 @@
     -if current_developer.admin?
       %table.table.table-striped
         -@developers.each do |developer|
-          %tr
+          %tr{ :onclick => "document.location = '#{developer_path(developer)}';"}
             %td
-              = link_to developer.name, developer_path(developer)
+              #{developer.name}
             %td 
               #{developer.admin? ? "Admin" : "Developer"}
     -else
