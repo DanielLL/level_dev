@@ -125,7 +125,7 @@ td:nth-child(2){
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   margin-left: 0;
-  padding: 20px;
+  padding: 0;
   border: none;
 }
 
@@ -133,6 +133,14 @@ td:nth-child(2){
   text-align: center;
   border-bottom: 1px solid #C7E2F7;
   padding-bottom: 10px;
+}
+
+.profile-info{
+  padding: 20px 20px 0;
+}
+
+.progress{
+  margin-bottom: 0px;
 }
 
   .level{

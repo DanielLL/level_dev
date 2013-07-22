@@ -1,16 +1,19 @@
 .span11
   .span4.profile
-    %h4 #{developer.name}
-    %br
-    %p Type: #{developer.admin? ? "Admin" : "Developer"}
-    %p Email: #{developer.email}
-    %br
+    .profile-info
+      %h4 #{developer.name}
+      %br
+      %p Type: #{developer.admin? ? "Admin" : "Developer"}
+      %p Email: #{developer.email}
+      %br
+    <div>
     .progress
       .bar{ :style => "width: 10%;" }
       .bar.bar-success{ :style => "width: 10%;" }
     %h5.level
       %span Level 
       Junior 2
+    </div>
   .areas
 
 .span4.img-rounded
