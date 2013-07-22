@@ -32,7 +32,7 @@
 
 #login li a:hover{color: #7E91A0;}
 
-.form {
+.form-sign-in, .form-sign-up, .form-forgot-password {
   width: 20%;
   margin: 0 auto 0;
   padding: 80px;
@@ -43,19 +43,19 @@
    box-shadow: 0 0 18px rgba(0, 0, 0, 0.2);
 }
 
-.form h3{
+.form-sign-in h3, .form-sign-up h3, .form-forgot-password h3{
   color: #5592C1;
   text-align: center;
   margin-bottom: 50px;
 }
 
-.form .control-group {
+.form-sign-in .control-group, .form-sign-up .control-group, .form-forgot-password .control-group {
   margin-bottom: 20px;
 }
 
-.form .button{text-align: center; margin-bottom: 40px;}
+.form-sign-in .button, .form-sign-up .button, .form-forgot-password .button{text-align: center; margin-bottom: 40px;}
 
-.form .btn{
+.form-sign-in .btn, .form-sign-up .btn, .form-forgot-password.btn{
   background: #E3AF2E;
   color: #fff;
   padding: 12px 30px;
