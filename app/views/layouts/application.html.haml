@@ -2,25 +2,39 @@
 %html(ng-app="LevelDevs")
   %head
     %title LevelDev
-    = stylesheet_link_tag    "screen", media: "all"
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
-    = csrf_meta_tags
-    -if developer_signed_in?
-      Signed in as 
-      = current_developer.email + '.'
-      Not you?
-      = link_to "Sign out", destroy_developer_session_path, method: :get
-      %hr
-      = link_to "Areas", areas_path
-      = link_to "Level"
-      = link_to "My profile", developer_path(current_developer)
-      -if current_developer.admin? 
-        = link_to "Developers", root_url
-      %hr
-    - else
-      = link_to "Sign up", new_developer_registration_path 
-      or 
-      = link_to "sign in", new_developer_session_path
+    = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"
+    = csrf_meta_tags 
   %body
-    = yield
+    %header
+      #logo
+        = link_to image_tag("logo-tango.png"), root_url
+      #login
+        -if developer_signed_in?
+          %ul.session
+            %li
+              = link_to current_developer.name, developer_path(current_developer)
+            %li
+              = link_to "Sign out", destroy_developer_session_path, method: :get
+        - else
+          %ul
+            %li
+              = link_to "Sign up", new_developer_registration_path
+            %li  
+              = link_to "Sign in", new_developer_session_path
+    %nav
+      %h3 Developers Level
+      -if developer_signed_in?
+        %ul.nav.nav-pills
+          %li
+            = link_to "Categories", areas_path
+          %li
+            = link_to "Level"
+          %li
+            = link_to "My Skills"
+          -if current_developer.admin?
+            %li
+              = link_to "Developers", root_url
+    #content
+      = yield

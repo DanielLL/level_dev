@@ -1,23 +1,21 @@
-<h2>Sign up</h2>
+<div class = "form-sign-up background-white img-rounded">
+<h3>Sign up</h3>
 
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
 
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name, :autofocus => true %></div>
+  <div class="control-group"><%= f.text_field :name, :autofocus => true, :class => "input-block-level", :placeholder => "Name" %></div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <div class="control-group"><%= f.email_field :email, :class => "input-block-level", :placeholder => "Email" %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div class="control-group"><%= f.password_field :password, :class => "input-block-level", :placeholder => "Password" %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div class="control-group"><%= f.password_field :password_confirmation, :class => "input-block-level", :placeholder => "Password confirmation" %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div class = "button"><%= f.submit "Sign up", :class => "btn" %></div>
 <% end %>
 
 <%= render "developers/shared/links" %>
+</div>
