@@ -1,0 +1,21 @@
+@import 'colors/background'
+//content table
+#content-table
+  margin: 20px auto 0
+  width: 80%
+
+//table module
+.table-striped tbody > tr:nth-child(odd) > td
+  background-color: $gray-light
+
+.table 
+  td
+    border: none
+  td:nth-child(1)
+    background: asset-url('icons/icon-develop.png', image) no-repeat 28px
+    background-size: 3%
+    padding: 18px 60px
+  td:nth-child(2)
+    text-align: right
+    padding: 18px 
+
