@@ -1,0 +1,15 @@
+@import 'mixins/gradients'
+
+.input-append
+  input.span3
+    width: 50%
+    height: 30px
+
+.search
+  +gradient(#222, #444)
+  border: 1px solid #222
+  padding: 9px 12px
+
+  .icon-search
+    background: asset-url('search-icons.png', image)
+    background-position: -48px 0

@@ -1,9 +1,15 @@
 @import 'colors/background'
+@import 'colors/modals'
 
 body
   background: $base-color
   font-family: 'Tahoma', 'Geneva', sans-serif
   margin: 0
+
+ul
+  margin: 0
+  li
+    list-style: none
 
 header
   padding: 10px 30px 0
@@ -31,11 +37,6 @@ nav
 a
   text-decoration: none
 
-ul
-  margin: 0
-  li
-    list-style: none
-
 input[type="name"], 
 input[type="email"], 
 input[type="password"],
@@ -46,3 +47,14 @@ input[type="password_confirmation"]
 
 table
   margin-bottom: 0
+
+.button
+  text-align: center
+  margin-bottom: 40px
+  .btn-yellow, .btn-yellow:hover
+    background: $yellow-ocre
+    color: $white
+    font-size: 18px
+    font-weight: lighter
+    margin-top: 25px
+    padding: 12px 30px
