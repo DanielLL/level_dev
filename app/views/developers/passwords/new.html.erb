@@ -1,4 +1,4 @@
-<div class = "form-forgot-password">
+<div class = "form-forgot-password background-white img-rounded">
 <h3>Forgot your password?</h3>
 
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
@@ -6,7 +6,7 @@
 
   <div class = "control-group"><%= f.email_field :email, :class => "input-block-level", :autofocus => true, :placeholder => "Email" %></div>
 
-  <div class = "button"><%= f.submit "Reset Password", :class => "btn" %></div>
+  <div class = "button"><%= f.submit "Reset Password", :class => "btn btn-yellow" %></div>
 <% end %>
 
 </div>

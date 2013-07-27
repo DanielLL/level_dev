@@ -1,25 +1,22 @@
 @import 'colors/modals'
 // module login
-#login ul.session li:nth-child(1)
-  background: asset-url('icons/icon-develop.png', image) no-repeat 2px
+nav ul.signin li:nth-child(1)
+  background: asset-url('icons/icon-session.png', image) no-repeat 2px
   background-size: 20%
   padding-left: 25px
   a
     font-size: 16px
     color: $yellow-mustard
 
-#login li
-  float: left
-  margin-left: 10px
-  padding-left: 34px
-
-#login li:nth-child(1)
+.session li:nth-child(1), .signin li:nth-child(2)
   background: asset-url('icons/frame_sticker.png', image) no-repeat 2px
   background-size: 32%
+  padding-left: 30px
 
-#login li:nth-child(2)
+.session li:nth-child(2)
   background: asset-url('icons/check_sticker.png', image) no-repeat 2px
   background-size: 32%
+  padding-left: 28px
 
 #login li a
   color: #426580
