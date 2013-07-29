@@ -2,11 +2,14 @@
   -if developer_signed_in?
     %h1.orange Developers:
     -if current_developer.admin?
-      %table.table.table-striped
+      %table.table.table-striped.table-developers
         -@developers.each do |developer|
           %tr{ :onclick => "document.location = '#{developer_path(developer)}';"}
             %td
               #{developer.name}
-            %td 
+            %td
               #{developer.admin? ? "Admin" : "Developer"}
+              = link_to '', edit_developer_path(developer.id), class: "icon-edit"
     -else
+
+

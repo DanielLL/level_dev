@@ -1,14 +1,16 @@
 @import 'colors/background'
+@import 'colors/modals'
 //content table
 #content-table
   margin: 20px auto 0
   width: 80%
+  
 
 //table module
 .table-striped tbody > tr:nth-child(odd) > td
   background-color: $gray-light
 
-.table 
+.table-developers 
   td
     border: none
   td:nth-child(1)
@@ -19,3 +21,16 @@
     text-align: right
     padding: 18px 
 
+.orange
+  color: $blue
+  font-size: 20px
+  padding: 10px 0 0 30px
+
+.icon-edit
+  background: asset-url('icon-pencil.png') no-repeat
+  background-size: 80%
+  margin-left: 15px
+  padding: 5px 10px
+  &:hover
+    background: asset-url('iconpencil-hover.png') no-repeat
+    background-size: 75%
