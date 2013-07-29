@@ -7,6 +7,9 @@
           %tr{ :onclick => "document.location = '#{developer_path(developer)}';"}
             %td
               #{developer.name}
-            %td 
+            %td
               #{developer.admin? ? "Admin" : "Developer"}
+              = link_to '', edit_developer_path(developer.id), class: "icon-edit"
     -else
+
+
