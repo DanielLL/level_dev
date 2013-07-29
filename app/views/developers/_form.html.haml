@@ -1,0 +1,20 @@
+= form_for developer do |f|
+  - if developer.errors.any?
+    .errors
+      %h2
+        = pluralize(developer.errors.count, 'error') 
+        in this form!
+      %ul
+        - developer.errors.full_messages.each do |error|
+          %li= error
+  %fieldset
+    .control-group
+      = f.text_field :name, :class => "input-block-level", :placeholder => "Name"
+    .control-group
+      = f.email_field :email, :class => "input-block-level", :placeholder => "Email"
+    .control-group
+      = f.password_field :password, :class => "input-block-level", :placeholder => "Password"
+    .contro-group
+      = f.password_field :password_confirmation, :class => "input-block-level", :placeholder => "Password confirmation"
+    .button
+      = f.submit "Update", :class => "btn btn-yellow"
