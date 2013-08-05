@@ -10,8 +10,13 @@ a:hover
   background-position: 0
 
 .nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus
-  border: none
+  border: 1px solid transparent
 
 nav .nav li a:hover
   background: none
 
+.disabled
+  pointer-events: none
+
+.menu li:hover
+  opacity: .7
