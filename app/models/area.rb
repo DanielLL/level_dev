@@ -20,7 +20,6 @@ class Area < ActiveRecord::Base
       percentage_total = areas_array.map(&:percentage).sum() + self.percentage
     end
     valid = percentage_total > 100 ? false : true
-    self.save if valid
     return valid
   end
 
