@@ -4,6 +4,7 @@ class Area < ActiveRecord::Base
 
   validates_presence_of :name, :description, :percentage
   validates_numericality_of :percentage
+  before_create :valid_percentage?
 
   #relations
   
@@ -18,7 +19,9 @@ class Area < ActiveRecord::Base
       areas_array = Area.all.reject{ |area| area.id == self.id }
       percentage_total = areas_array.map(&:percentage).sum() + self.percentage
     end
-    return percentage_total > 100 ? true : false
+    valid = percentage_total > 100 ? false : true
+    self.save if valid
+    return valid
   end
 
 end
