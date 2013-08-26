@@ -1,3 +1,2 @@
 module AreasHelper
-
 end
