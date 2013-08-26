@@ -3,9 +3,6 @@ class DevSkillsController < ApplicationController
   expose(:dev_skills, ancestor: :developer)
   expose(:dev_skill)
 
-  def index
-  end
-
   def create
     developer.dev_skills.destroy_all
     params[:ids_array] ||= []

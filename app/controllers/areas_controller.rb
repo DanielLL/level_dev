@@ -8,20 +8,8 @@ class AreasController < ApplicationController
 
   # actions for the controller
 
-  def index
-  end
-
   def create
     save_update(:new)
-  end
-
-  def new
-  end
-
-  def show
-  end
-
-  def edit
   end
 
   def update
@@ -39,21 +27,15 @@ class AreasController < ApplicationController
   # methods
 
   def save_update(action)
-    if area.valid_percentage?
-      render action
+    if area.valid_percentage? && area.save
+      redirect_to area_path(area)
     else
-      if area.save
-        redirect_to area_path(area)
-      else
-        render action
-      end
+      render action
     end
   end
 
   def is_admin?
-    unless current_developer.admin?
-      redirect_to areas_path
-    end
+    redirect_to areas_path if !current_developer.admin?
   end
 
   private 

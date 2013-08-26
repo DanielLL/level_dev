@@ -5,25 +5,13 @@ class SkillsController < ApplicationController
   expose(:skills) { area.skills }
   expose(:skill, attributes: :skill_attributes)
 
-  def index
-  end
-
-  def new
-  end
-
   def create
     save_update(:new)
   end
 
   def destroy
-    if skill.destroy
-      redirect_to area_path(skill.area)
-    else
-      redirect_to area_path(skill.area)
-    end
-  end
-
-  def edit
+    skill.destroy
+    redirect_to area_path(skill.area)
   end
 
   def update
