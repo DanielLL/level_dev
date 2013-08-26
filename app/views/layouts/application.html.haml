@@ -17,9 +17,8 @@
             = link_to "Level"
           %li
             = link_to "My Skills"
-          -if current_developer.admin?
-            %li
-              = link_to "Developers", root_url
+          %li
+            = link_to "Developers", root_url
         %ul.nav.nav-pills.signin
           %li
             = link_to current_developer.name, developer_path(current_developer)
