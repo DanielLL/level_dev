@@ -22,13 +22,15 @@
   .tabs-areas(ng-controller="devSkillsController" ng-init="getAreas(#{developer.id})")
     %ul.nav.nav-tabs
       %li(ng-repeat="area in areas")
-        = link_to "{{area.name}}", "#\{{area.id}}", :data => {:toggle=>"tab"}
+        = link_to "{{area.name}}", "#area_{{area.id}}", :data => {:toggle=>"tab"}
     .tab-content
       .tab-pane.active
         .select_text
-          Select an Area to Drag Skills
-      .tab-pane(id="{{area.id}}" ng-repeat="area in areas")
+          Select an area to see its skills
+      .tab-pane(id="area_{{area.id}}" ng-repeat="area in areas")
         %ul
+          %li.skill.span2.img-rounded(ng-repeat="skill in area.skills" ng-show="skill.visible" id="{{skill.id}}") 
+            {{skill.name}}
 
 .span4.img-rounded{class: "#{current_developer.admin? ? '' : 'disabled'}"}
   .areas_container(ng-controller="devSkillsController" ng-init="getAreas(#{developer.id})")
@@ -39,15 +41,16 @@
         %span.icon-search
     %div.areas_list
       %ul.skills_area
-        %li.area(id="{{area.id}}"ng-repeat="area in areas")
+        %li.area(id="area_{{area.id}}"ng-repeat="area in areas")
           %h4
             {{area.name}}
           %ul.skill_list.inline(ondrop="drop(event)" ondragover="allowDrop(event)")
-            %li.skill(id="{{skill.id}}" ng-repeat="skill in area.skills" draggable="true" ondragstart="drag(event)" )
+            %li.skill(id="{{skill.id}}" ng-repeat="skill in area.skills" ng-hide="skill.visible" draggable="true" ondragstart="drag(event)" )
               {{skill.name}}
-              %input(ng-model="skill.visible" type="checkbox" ng-disabled="#{!current_developer.admin?}")
+              %input(ng-model="skill.visible" type="checkbox" ng-disabled="#{!current_developer.admin?}" ng-show="false")
             %p(ng-show="empty_area($index)")
               this area has no skills yet...
 
     .button
       %button.btn.btn-yellow(ng-show="#{current_developer.admin?}" type="button" ng-click="updateDevSkills(#{developer.id})") Update Skills
+
