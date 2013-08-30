@@ -1,4 +1,4 @@
-.span11
+.span11(ondrop="drop(event)" ondragover="allowDrop(event)")
   .span4.profile
     .profile-info
       %h4 #{developer.name}
@@ -19,27 +19,16 @@
       %h5.level
         %span Level 
         Junior 2
-  .tabs-areas
+  .tabs-areas(ng-controller="devSkillsController" ng-init="getAreas(#{developer.id})")
     %ul.nav.nav-tabs
-      %li.active
-        = link_to "Development", "#development", :data => {:toggle=>"tab"}
-      %li
-        = link_to "Area2", "#area2", :data => {:toggle=>"tab"}
-      %li
-        = link_to "Area3", "#area3", :data => {:toggle=>"tab"}
+      %li(ng-repeat="area in areas")
+        = link_to "{{area.name}}", "#\{{area.id}}", :data => {:toggle=>"tab"}
     .tab-content
-      .tab-pane.active#development
+      .tab-pane.active
+        .select_text
+          Select an Area to Drag Skills
+      .tab-pane(id="{{area.id}}" ng-repeat="area in areas")
         %ul
-          %li.span2.skill.img-rounded
-            html
-          %li.span2.skill.img-rounded
-            vim
-          %li.span2.skill.img-rounded
-            css
-      .tab-pane#area2
-        Eos vocibus deserunt quaestio ei. Blandit incorrupte quaerendum in quo, nibh impedit id vis, vel no nullam semper audiam. Ei populo graeci consulatu mei, has ea stet modus phaedrum. Inani oblique ne has, duo et veritus detraxit. Tota ludus oratio ea mel, offendit persequeris ei vim.
-      .tab-pane#area3
-        Dicant evertitur mei in, ne his deserunt perpetua sententiae, ea sea omnes similique vituperatoribus. Ex mel errem intellegebat comprehensam, vel ad tantas antiopam delicatissimi, tota ferri affert eu nec. Legere expetenda pertinacia ne pro, et pro impetus persius assueverit
 
 .span4.img-rounded{class: "#{current_developer.admin? ? '' : 'disabled'}"}
   .areas_container(ng-controller="devSkillsController" ng-init="getAreas(#{developer.id})")
@@ -53,11 +42,10 @@
         %li.area(id="{{area.id}}"ng-repeat="area in areas")
           %h4
             {{area.name}}
-          %ul.skill_list.inline
-            %li.skill(id="{{skill.id}}" ng-repeat="skill in area.skills")
-              %input(ng-model="skill.visible" type="checkbox" ng-disabled="#{!current_developer.admin?}")
+          %ul.skill_list.inline(ondrop="drop(event)" ondragover="allowDrop(event)")
+            %li.skill(id="{{skill.id}}" ng-repeat="skill in area.skills" draggable="true" ondragstart="drag(event)" )
               {{skill.name}}
-              {{area.admin}}
+              %input(ng-model="skill.visible" type="checkbox" ng-disabled="#{!current_developer.admin?}")
             %p(ng-show="empty_area($index)")
               this area has no skills yet...
 

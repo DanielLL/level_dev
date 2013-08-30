@@ -15,3 +15,27 @@
 //= require_tree ./libs
 //= require main
 //= require_tree .
+//
+function allowDrop(ev)
+{
+  ev.preventDefault();
+}
+
+function drag(ev)
+{
+  ev.dataTransfer.setData("id",ev.target.id);
+}
+
+function drop(ev)
+{
+  ev.preventDefault();
+  var $element = $("li .skill[id='"+ev.dataTransfer.getData("id")+"']")
+  var $container = $(ev.target).find(".tab-pane.active");
+
+  if ($element.parents("li").attr("id") === $container.attr("id")){
+    $element.addClass("span2 skill img-rounded");
+    debugger
+    $element.find("input").prop("checked", true)
+    $container.find("ul").append($element);
+  }
+}
