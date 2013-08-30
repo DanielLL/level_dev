@@ -9,6 +9,7 @@ class Area < ActiveRecord::Base
   #relations
   
   has_many :skills, dependent: :destroy
+  default_scope self.all.order('created_at asc')
 
   # methods
 

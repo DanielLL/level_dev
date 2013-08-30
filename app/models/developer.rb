@@ -6,6 +6,8 @@ class Developer < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   validates_presence_of :name
 
+  default_scope self.all.order('created_at asc')
+
   has_many :dev_skills, dependent: :destroy
 
 

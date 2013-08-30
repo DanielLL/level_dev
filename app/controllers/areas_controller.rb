@@ -28,7 +28,7 @@ class AreasController < ApplicationController
 
   def save_update(action)
     if area.valid_percentage? && area.save
-      redirect_to area_path(area)
+      redirect_to areas_path
     else
       render action
     end
