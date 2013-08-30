@@ -23,7 +23,12 @@ function allowDrop(ev)
 
 function drag(ev)
 {
+  var c_lass = $(ev.target).parents(".skills_area").attr("class");
+  if (c_lass === undefined) {
+    c_lass = $(ev.target).parent().attr("class")
+  }
   ev.dataTransfer.setData("id",ev.target.id);
+  ev.dataTransfer.setData("type", c_lass);
 }
 
 function drop(ev)
@@ -32,11 +37,21 @@ function drop(ev)
   var $element = $("li .skill[id='"+ev.dataTransfer.getData("id")+"']")
   var $container = $(".tab-pane.active");
 
-  if ($element.parents("li").attr("id") === $container.attr("id")){
-    $element.addClass("span2 skill img-rounded");
-    $element.find("input").prop("checked", true)
-
-    $container.find(".skill[id='"+$element.attr("id")+"']").show()
-    $element.hide()
+  if (ev.dataTransfer.getData("type") === "skills_area" && $(ev.target).find(".tab-content").size()===1) {
+    if ($element.parents("li").attr("id") === $container.attr("id")){
+      $element.addClass("span2 skill img-rounded");
+      $element.find("input").prop("checked", true);
+      $container.find(".skill[id='"+$element.attr("id")+"']").show();
+      $element.hide();
+    }
+  }
+  if (ev.dataTransfer.getData("type") === "dev_skills" && $(ev.target).parent().hasClass("area")) {
+    if ( $(ev.target).parent().attr("id") === $container.attr("id")) {
+      $to_hide = $container.find(".skill[id='"+ev.dataTransfer.getData("id")+"']");
+      $to_show = $(ev.target).parent().find(".skill[id='"+ev.dataTransfer.getData("id")+"']");
+      $to_hide.hide();
+      $to_show.show();
+      $to_show.find("input").prop("checked", false);
+    }
   }
 }
